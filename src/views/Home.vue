@@ -1,12 +1,12 @@
 <template>
   <div class="home">
+    <!--Select user 1-6-->
     <!--<img alt="Vue logo" src="../assets/logo.png">-->
     <Cards/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Cards from '@/components/Cards.vue'
 
 export default {
