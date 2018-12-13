@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :style="{borderColor: bgColor}">
+  <div class="card">
     <span class="user-color" :style="{background: bgColor}"></span>
     <h1 class="text">{{ text }}</h1>
     <span class="emoji">{{ emoji }}</span>
@@ -8,9 +8,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+const text = ['Choca los 5!', 'Toque de Puños', '¡Cambio de río!', 'Happy Salmon']
 const emojis = ['✋', '🤜🤛', '🔄', '🐟']
-const colors = [ 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple' ]
+const colors = [ '#f44336', '#9c27b0', '#2196f3', '#00bcd4', '#cddc39', '#795548' ]
+// const colors = [ '#ef9a9a', '#ce93d8', '#90caf9', '#80deea', '#e6ee9c', '#bcaaa4' ]
 
 export default {
   name: 'Card',
@@ -23,7 +24,7 @@ export default {
   computed: {
     ...mapGetters([ 'userId' ]),
     text () {
-      return this.data.text
+      return text[this.data.type]
     },
     emoji () {
       return emojis[this.data.type]
@@ -41,6 +42,7 @@ export default {
     padding 0 14px
     border-width 4px
     border-style solid
+    border-color #eee
     border-radius 4px
 
     //.user-number
@@ -59,7 +61,6 @@ export default {
       bottom 0
       width 50px
       height 50px
-      background-image url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 920 1750' x='0px' y='0px'%3E %3Cpath style='fill: rgba(67, 217, 184, 0.25)")
       border-top-left-radius 50px
       font-weight bold
       color #999

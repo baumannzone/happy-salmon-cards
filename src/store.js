@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userId: 5
+    userId: 0
   },
   mutations: {
     setUserId (state, payload) {
@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
   actions: {
     setUserId ({ commit }, payload) {
-      commit.setUserId(payload)
+      commit('setUserId', payload)
     }
   },
   getters: {

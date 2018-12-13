@@ -19,18 +19,18 @@ export default {
   data () {
     return {
       cards: [
-        { text: 'Choca los 5!', type: 0 },
-        { text: 'Choca los 5!', type: 0 },
-        { text: 'Choca los 5!', type: 0 },
-        { text: 'Toque de Puños', type: 1 },
-        { text: 'Toque de Puños', type: 1 },
-        { text: 'Toque de Puños', type: 1 },
-        { text: '¡Cambio de río!', type: 2 },
-        { text: '¡Cambio de río!', type: 2 },
-        { text: '¡Cambio de río!', type: 2 },
-        { text: 'Happy Salmon', type: 3 },
-        { text: 'Happy Salmon', type: 3 },
-        { text: 'Happy Salmon', type: 3 }
+        { type: 0 },
+        { type: 0 },
+        { type: 0 },
+        { type: 1 },
+        { type: 1 },
+        { type: 1 },
+        { type: 2 },
+        { type: 2 },
+        { type: 2 },
+        { type: 3 },
+        { type: 3 },
+        { type: 3 }
       ]
     }
   }
@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .cards
+    padding-left 15px
   .grid-container
     display grid
     grid-template-columns repeat(3, 300px)
