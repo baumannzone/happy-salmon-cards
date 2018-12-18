@@ -5,19 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userId: 0
+    playerId: 0
   },
   mutations: {
-    setUserId (state, payload) {
+    setPlayerId (state, payload) {
       state.userId = payload
     }
   },
   actions: {
-    setUserId ({ commit }, payload) {
+    setPlayerId ({ commit }, payload) {
       commit('setUserId', payload)
     }
   },
   getters: {
-    userId: (state) => (state.userId)
+    playerId: (state) => (state.userId)
   }
 })

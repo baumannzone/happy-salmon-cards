@@ -1,17 +1,21 @@
 <template>
   <div class="card">
-    <span class="user-color" :style="{background: bgColor}"></span>
+    <div class="user-color" :style="{background: bgColor}">
+      <div class="user-color-bar" :style="{background: bgColor}"></div>
+    </div>
+    <div class="user-number">{{ userId + 1 }}</div>
     <h1 class="text">{{ text }}</h1>
-    <span class="emoji">{{ emoji }}</span>
+    <i class="icon" :class="icons"></i>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-const text = ['Choca los 5!', 'Toque de Puños', '¡Cambio de río!', 'Happy Salmon']
+
+const text = ['¡Choca los 5!', 'Toque de Puños', '¡Cambio de río!', 'Happy Salmon']
 const emojis = ['✋', '🤜🤛', '🔄', '🐟']
-const colors = [ '#f44336', '#9c27b0', '#2196f3', '#00bcd4', '#cddc39', '#795548' ]
-// const colors = [ '#ef9a9a', '#ce93d8', '#90caf9', '#80deea', '#e6ee9c', '#bcaaa4' ]
+const colors = [ '#f44336', '#9c27b0', '#2196f3', '#4caf50', '#cddc39', '#795548' ]
+// #red #purple #blue #green #lime #brown
 
 export default {
   name: 'Card',
@@ -29,6 +33,17 @@ export default {
     emoji () {
       return emojis[this.data.type]
     },
+    icons () {
+      if (this.data.type === 0) {
+        return 'far fa-hand-paper'
+      } else if (this.data.type === 1) {
+        return 'far fa-hand-rock fa-rotate-90'
+      } else if (this.data.type === 2) {
+        return 'fas fa-exchange-alt'
+      } else {
+        return 'fas fa-fish'
+      }
+    },
     bgColor () {
       return colors[this.userId]
     }
@@ -45,17 +60,18 @@ export default {
     border-color #eee
     border-radius 4px
 
-    //.user-number
-    //  position absolute
-    //  left 0
-    //  width 20px
-    //  height 20px
-    //  background #eee
-    //  border-bottom-right-radius 3px
-    //  font-weight bold
-    //  color #999
+    .user-number
+      position absolute
+      left 0
+      width 20px
+      height 20px
+      background #eee
+      border-bottom-right-radius 3px
+      font-weight bold
+      color #999
 
     .user-color
+      display block
       position absolute
       right 0
       bottom 0
@@ -64,11 +80,18 @@ export default {
       border-top-left-radius 50px
       font-weight bold
       color #999
+    .user-color-bar
+      position absolute
+      right 0
+      bottom 0
+      width 292px
+      height 8px
 
     .text
       font-size 3.5rem
 
-    .emoji
-      font-size 5rem
+    .emoji,
+    .icon
+      font-size 6rem
 
 </style>

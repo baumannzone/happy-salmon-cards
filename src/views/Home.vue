@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <select v-model="selected" @change="setUser()">
+    <select v-model="selected" @change="setPlayer()">
       <option v-for="n in options" :key="n" :value="n">{{ n+1 }}</option>
     </select>
-    <hr>
+    <br> <br>
     <Cards/>
   </div>
 </template>
@@ -23,15 +23,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['userId']),
+    ...mapGetters([ 'userId' ]),
     options () {
-      return [0, 1, 2, 3, 4, 5]
+      return [ 0, 1, 2, 3, 4, 5 ]
     }
   },
   methods: {
-    setUser () {
-      console.debug(this.selected - 1)
-      this.$store.dispatch('setUserId', this.selected)
+    setPlayer () {
+      this.$store.dispatch('setPlayerId', this.selected)
     }
   }
 }

@@ -39,11 +39,13 @@ export default {
 
 <style scoped lang="stylus">
   .cards
+    position relative
     padding-left 15px
+
   .grid-container
     display grid
     grid-template-columns repeat(3, 300px)
-    grid-template-rows repeat(4, 430px)
+    grid-template-rows repeat(4, 440px)
     grid-column-gap 50px
     grid-row-gap 50px
 </style>
